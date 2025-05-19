@@ -17,6 +17,17 @@
         android:maxLines="2"
         android:ellipsize="end" />
 
+    <ImageView
+        android:id="@+id/tvImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="2dp"
+        android:layout_marginTop="4dp"
+        android:maxLines="3"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:ellipsize="end"/>
+
     <!-- 기사 설명(Description) -->
     <TextView
         android:id="@+id/tvDesc"
@@ -28,5 +39,6 @@
         android:layout_marginTop="4dp"
         android:maxLines="3"
         android:ellipsize="end" />
+
 
 </LinearLayout>

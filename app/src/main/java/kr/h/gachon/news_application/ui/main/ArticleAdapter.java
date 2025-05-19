@@ -1,4 +1,4 @@
-package kr.h.gachon.news_application.ui;
+package kr.h.gachon.news_application.ui.main;
 
 
 import android.view.LayoutInflater;
@@ -6,6 +6,11 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+
+// URL 이미지용
+import com.bumptech.glide.Glide;
+import kr.h.gachon.news_application.R;
 
 import kr.h.gachon.news_application.databinding.ItemArticleBinding;
 import kr.h.gachon.news_application.network.model.News;
@@ -56,6 +61,13 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.VH> {
 
         void bind(News article) {
             binding.tvTitle.setText(article.getTitle());
+            // Glide로 URL에서 이미지 로드
+            Glide.with(binding.tvImage.getContext())
+                    .load(article.getUrlimg())      // String URL
+                    .placeholder(R.drawable.reload) // 로딩 중 대체 이미지
+                    .error(R.drawable.error)           // 실패 시 대체 이미지
+                    .into(binding.tvImage);
+
             binding.tvDesc.setText(article.getDescription());
         }
     }

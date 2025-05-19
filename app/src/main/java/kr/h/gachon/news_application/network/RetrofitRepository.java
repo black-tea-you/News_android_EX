@@ -2,9 +2,13 @@ package kr.h.gachon.news_application.network;
 
 import java.util.List;
 
+import kr.h.gachon.news_application.network.model.LoginRequest;
+import kr.h.gachon.news_application.network.model.LoginResponse;
 import kr.h.gachon.news_application.network.model.News;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface RetrofitRepository{
@@ -24,4 +28,8 @@ public interface RetrofitRepository{
     // 전체 DB 기사 (테스트용)
     @GET("/api/news/all")
     Call<List<News>> getAllArticles();
+
+    /** 로그인 */
+    @POST("/api/login")
+    Call<LoginResponse> login(@Body LoginRequest body);
 }
