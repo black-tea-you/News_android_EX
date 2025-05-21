@@ -2,11 +2,14 @@ package kr.h.gachon.news_application.network;
 
 import java.util.List;
 
+import kr.h.gachon.news_application.network.model.KeywordRequest;
 import kr.h.gachon.news_application.network.model.LoginRequest;
 import kr.h.gachon.news_application.network.model.LoginResponse;
 import kr.h.gachon.news_application.network.model.News;
+import kr.h.gachon.news_application.network.model.UserProfile;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -29,7 +32,25 @@ public interface RetrofitRepository{
     @GET("/api/news/all")
     Call<List<News>> getAllArticles();
 
+
     /** 로그인 */
     @POST("/api/login")
     Call<LoginResponse> login(@Body LoginRequest body);
+
+
+    /**===============프로필 관련 코드=============*/
+
+    /** 등록된 키워드 전체 가져오기 */
+    @GET("/api/profile/keywords")
+    Call<List<String>> getKeywords();
+
+    /** 키워드 추가 */
+    @POST("/api/profile/keywordAdd")
+    Call<Void> addKeyword(@Body KeywordRequest body);
+
+    /** 키워드 삭제 */
+    @DELETE("/api/profile/keywordDelete")
+    Call<Void> deleteKeyword(@Query("keyword") String keyword);
+
+    /**===============프로필 관련 코드=============*/
 }
