@@ -6,6 +6,7 @@ import kr.h.gachon.news_application.network.model.KeywordRequest;
 import kr.h.gachon.news_application.network.model.LoginRequest;
 import kr.h.gachon.news_application.network.model.LoginResponse;
 import kr.h.gachon.news_application.network.model.News;
+import kr.h.gachon.news_application.network.model.RegisterRequest;
 import kr.h.gachon.news_application.network.model.UserProfile;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -36,6 +37,10 @@ public interface RetrofitRepository{
     /** 로그인 */
     @POST("/api/login")
     Call<LoginResponse> login(@Body LoginRequest body);
+
+    /** 회원가입 */
+    @POST("/api/register")
+    Call<String> register(@Body RegisterRequest body);
 
 
     /**===============프로필 관련 코드=============*/

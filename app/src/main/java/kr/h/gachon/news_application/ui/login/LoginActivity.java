@@ -46,5 +46,10 @@ public class LoginActivity extends AppCompatActivity {
         vm.getLoginError().observe(this, errMsg ->
                 Toast.makeText(this, errMsg, Toast.LENGTH_SHORT).show()
         );
+
+        //회원가입 버튼
+        binding.btnGoRegister.setOnClickListener(v -> {
+            startActivity(new Intent(this, RegisterActivity.class));
+        });
     }
 }
