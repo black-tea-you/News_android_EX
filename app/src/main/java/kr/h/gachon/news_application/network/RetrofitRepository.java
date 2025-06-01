@@ -7,6 +7,7 @@ import kr.h.gachon.news_application.network.model.LoginRequest;
 import kr.h.gachon.news_application.network.model.LoginResponse;
 import kr.h.gachon.news_application.network.model.News;
 import kr.h.gachon.news_application.network.model.RegisterRequest;
+import kr.h.gachon.news_application.network.model.SearchResult;
 import kr.h.gachon.news_application.network.model.UserProfile;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -58,4 +59,12 @@ public interface RetrofitRepository{
     Call<Void> deleteKeyword(@Query("keyword") String keyword);
 
     /**===============프로필 관련 코드=============*/
+
+    //키워드 검색 15개 반환해주고 여기서 Date 기준으로 정렬하면 과거순/최신순 정렬 가능
+    @GET("/api/news/search-by-keyword")
+    Call<List<SearchResult>> searchByKeyword(
+            @Query("category") String category,
+            @Query("keyword") String keyword,
+            @Query("topK") int topK
+    );
 }

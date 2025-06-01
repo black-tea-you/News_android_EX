@@ -17,6 +17,7 @@ import java.util.List;
 import kr.h.gachon.news_application.R;
 import kr.h.gachon.news_application.databinding.ActivityMainBinding;
 import kr.h.gachon.news_application.network.model.News;
+import kr.h.gachon.news_application.ui.Search;
 import kr.h.gachon.news_application.ui.login.LoginActivity;
 import kr.h.gachon.news_application.ui.profile.ProfileActivity;
 import kr.h.gachon.news_application.util.TokenManager;
@@ -72,6 +73,12 @@ public class MainActivity extends ComponentActivity {
                 // 로그인 되어 있으면 프로필 화면으로
                 startActivity(new Intent(this, ProfileActivity.class));
             }
+        });
+
+        //search 확인 버튼
+        binding.button3.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Search.class);
+            startActivity(intent);
         });
 
         // 5) 나머지 기존 로직(애니, RecyclerView, ViewModel, 뉴스 로딩)

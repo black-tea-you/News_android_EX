@@ -9,6 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static final String BASE_URL = "http://10.0.2.2:10000/";
+    //BASE_URL="https://newsnap.onrender.com/"
+    //"http://10.0.2.2:10000/";
     private static Retrofit retrofit;
 
     private static Retrofit getRetrofit(Context ctx) {
