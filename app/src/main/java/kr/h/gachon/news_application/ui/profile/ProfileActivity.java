@@ -1,6 +1,7 @@
 package kr.h.gachon.news_application.ui.profile;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,9 @@ public class ProfileActivity extends AppCompatActivity {
         binding.rvKeywords.setAdapter(adapter);
 
         vm.getKeywords().observe(this, list -> {
+            if (list != null) {
+                Log.d("ProfileActivity", "서버에서 받은 키워드 [" + list.size() + "개]: " + list);
+            }
             adapter.submitList(list);
         });
 

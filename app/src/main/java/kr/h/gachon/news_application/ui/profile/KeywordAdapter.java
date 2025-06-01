@@ -1,5 +1,6 @@
 package kr.h.gachon.news_application.ui.profile;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -41,7 +42,9 @@ public class KeywordAdapter extends RecyclerView.Adapter<KeywordAdapter.VH> {
 
     @Override
     public int getItemCount() {
-        return items.size();
+        int size = items.size();
+        Log.d("KeywordAdapter", "getItemCount()=" + size);
+        return size;
     }
 
     static class VH extends RecyclerView.ViewHolder {

@@ -1,6 +1,9 @@
 package kr.h.gachon.news_application.network;
 
 import android.content.Context;
+
+import java.util.concurrent.TimeUnit;
+
 import kr.h.gachon.news_application.util.TokenManager;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -24,6 +27,9 @@ public class RetrofitClient {
                     new AuthInterceptor(TokenManager.getInstance(ctx));
 
             OkHttpClient client = new OkHttpClient.Builder()
+                    .connectTimeout(15, TimeUnit.SECONDS)   // 연결 시도 최대 대기시간 15초
+                    .readTimeout(30, TimeUnit.SECONDS)      // 서버 응답 읽기 최대 대기시간 30초
+                    .writeTimeout(15, TimeUnit.SECONDS)     // 요청 바디 전송 최대 대기시간 15초
                     .addInterceptor(authInterceptor)
                     .addInterceptor(logging)
                     .build();
