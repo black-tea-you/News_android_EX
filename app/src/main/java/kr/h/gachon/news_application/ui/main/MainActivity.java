@@ -18,6 +18,7 @@ import kr.h.gachon.news_application.R;
 import kr.h.gachon.news_application.databinding.ActivityMainBinding;
 import kr.h.gachon.news_application.network.model.News;
 import kr.h.gachon.news_application.ui.Search;
+import kr.h.gachon.news_application.ui.trend.TrendSearchActivity;
 import kr.h.gachon.news_application.ui.login.LoginActivity;
 import kr.h.gachon.news_application.ui.profile.ProfileActivity;
 import kr.h.gachon.news_application.util.TokenManager;
@@ -78,6 +79,12 @@ public class MainActivity extends ComponentActivity {
         //search 확인 버튼
         binding.button3.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, Search.class);
+            startActivity(intent);
+        });
+
+        //트렌드 확인 버튼
+        binding.button4.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this,TrendSearchActivity.class);
             startActivity(intent);
         });
 

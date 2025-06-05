@@ -27,9 +27,9 @@ public class RetrofitClient {
                     new AuthInterceptor(TokenManager.getInstance(ctx));
 
             OkHttpClient client = new OkHttpClient.Builder()
-                    .connectTimeout(15, TimeUnit.SECONDS)   // 연결 시도 최대 대기시간 15초
-                    .readTimeout(30, TimeUnit.SECONDS)      // 서버 응답 읽기 최대 대기시간 30초
-                    .writeTimeout(15, TimeUnit.SECONDS)     // 요청 바디 전송 최대 대기시간 15초
+                    .connectTimeout(60, TimeUnit.SECONDS)   // 연결 시도 최대 대기시간 15초
+                    .readTimeout(60, TimeUnit.SECONDS)      // 서버 응답 읽기 최대 대기시간 30초
+                    .writeTimeout(60, TimeUnit.SECONDS)     // 요청 바디 전송 최대 대기시간 15초
                     .addInterceptor(authInterceptor)
                     .addInterceptor(logging)
                     .build();

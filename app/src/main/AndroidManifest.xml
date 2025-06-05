@@ -22,6 +22,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
+        <activity android:name=".ui.trend.TrendSearchActivity"
+        >
+
+        </activity>
+
         <activity android:name=".ui.Search">
 
         </activity>

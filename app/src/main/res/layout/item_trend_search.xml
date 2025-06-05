@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="12dp"
+    android:background="?android:attr/selectableItemBackground">
 
+    <!-- 뉴스 제목 -->
     <TextView
-        android:id="@+id/trendTitle"
+        android:id="@+id/tvItemTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="제목"
+        android:text="기사 제목"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:ellipsize="end"/>
 
+    <!-- 링크 (클릭 시 웹 브라우저 또는 CustomTabs로 열도록 할 수 있음) -->
     <TextView
-        android:id="@+id/trendUrl"
+        android:id="@+id/tvItemLink"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="URL"
+        android:text="https://example.com"
         android:textColor="@android:color/holo_blue_dark"
-        android:layout_marginTop="4dp" />
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        android:maxLines="1"
+        android:ellipsize="end"/>
 
+    <!-- 유사도 Score -->
     <TextView
-        android:id="@+id/trendScore"
+        android:id="@+id/tvItemScore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="유사도"
-        android:layout_marginTop="4dp" />
+        android:text="유사도: 0.805"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"/>
 </LinearLayout>

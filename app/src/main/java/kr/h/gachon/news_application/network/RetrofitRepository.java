@@ -90,7 +90,7 @@ public interface RetrofitRepository{
 
     /** 3) 트렌드 검색(키워드 + 기사 리스트) **/
     // GET /trend_search?start=YYYY-MM-DD&end=YYYY-MM-DD&topK=5
-    @GET("/trend_search")
+    @GET("api/keyword/trend_search")
     Call<TrendSearchResult> getTrendSearch(
             @Query("start") String startDate,   // 예: "2025-05-01"
             @Query("end")   String endDate,     // 예: "2025-05-05"
@@ -99,6 +99,6 @@ public interface RetrofitRepository{
 
     /** 4) 팝업용 뉴스(유저별) **/
     // GET /popup
-    @GET("/popup")
+    @GET("api/keyword/popup")
     Call<List<News>> getPopupNews();
 }
