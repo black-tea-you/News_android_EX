@@ -68,7 +68,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.VH> {
                     .error(R.drawable.error)           // 실패 시 대체 이미지
                     .into(binding.tvImage);
 
-            binding.tvDesc.setText(article.getDescription());
+            binding.tvDesc.setText(article.getSummary());
         }
     }
 }

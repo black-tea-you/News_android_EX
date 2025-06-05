@@ -27,7 +27,7 @@ public class ProfileViewModel extends AndroidViewModel {
 
     public LiveData<List<String>> getKeywords()   { return keywords; }
     /** null이면 성공, 메시지 있으면 토스트용 에러 */
-    public LiveData<String>       getResultMsg()  { return resultMsg; }
+    public LiveData<String> getResultMsg()  { return resultMsg; }
 
     public void loadKeywords() {
         repo.fetchKeywords(new Callback<List<String>>() {

@@ -3,6 +3,8 @@ package kr.h.gachon.news_application.network.model;
 /**
  * Retrofit @Body 로 전달할 로그인 요청 DTO
  */
+
+//로그인 요청 시 필요한 Model
 public class LoginRequest {
     private String userName;
     private String password;

@@ -44,6 +44,7 @@ public class RetrofitClient {
     }
 
     /** 로그인 등 모든 API 호출을 위한 서비스 제공 */
+    //모든 API를 담당하는 함수 API 필요시에 RetrofitRepository에 전부 넣으면 됨
     public static RetrofitRepository getApiService(Context ctx) {
         return getRetrofit(ctx).create(RetrofitRepository.class);
     }

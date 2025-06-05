@@ -8,12 +8,14 @@ import kr.h.gachon.news_application.network.model.LoginResponse;
 import kr.h.gachon.news_application.network.model.News;
 import kr.h.gachon.news_application.network.model.RegisterRequest;
 import kr.h.gachon.news_application.network.model.SearchResult;
+import kr.h.gachon.news_application.network.model.TrendSearchResult;
 import kr.h.gachon.news_application.network.model.UserProfile;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface RetrofitRepository{
@@ -58,6 +60,21 @@ public interface RetrofitRepository{
     @DELETE("/api/profile/keywordDelete")
     Call<Void> deleteKeyword(@Query("keyword") String keyword);
 
+    // 1) 로그인된 유저가 스크랩한 뉴스 전체 리스트 조회
+    //    GET /api/scrap
+    @GET("/api/scrap")
+    Call<List<News>> getScraps();
+
+    // 2) 스크랩 추가 (로그인된 유저 기준으로 해당 newsId 스크랩)
+    //    POST /api/scrap/{newsId}
+    @POST("/api/scrap/{newsId}")
+    Call<Void> addScrap(@Path("newsId") Long newsId);
+
+    // 3) 스크랩 삭제 (로그인된 유저 기준으로 해당 newsId 스크랩 제거)
+    //    DELETE /api/scrap/{newsId}
+    @DELETE("/api/scrap/{newsId}")
+    Call<Void> deleteScrap(@Path("newsId") Long newsId);
+
     /**===============프로필 관련 코드=============*/
 
     //키워드 검색 15개 반환해주고 여기서 Date 기준으로 정렬하면 과거순/최신순 정렬 가능
@@ -67,4 +84,21 @@ public interface RetrofitRepository{
             @Query("keyword") String keyword,
             @Query("topK") int topK
     );
+
+    
+    /*트렌드 검색 날짜 지정*/
+
+    /** 3) 트렌드 검색(키워드 + 기사 리스트) **/
+    // GET /trend_search?start=YYYY-MM-DD&end=YYYY-MM-DD&topK=5
+    @GET("/trend_search")
+    Call<TrendSearchResult> getTrendSearch(
+            @Query("start") String startDate,   // 예: "2025-05-01"
+            @Query("end")   String endDate,     // 예: "2025-05-05"
+            @Query("topK")  int    topK
+    );
+
+    /** 4) 팝업용 뉴스(유저별) **/
+    // GET /popup
+    @GET("/popup")
+    Call<List<News>> getPopupNews();
 }
