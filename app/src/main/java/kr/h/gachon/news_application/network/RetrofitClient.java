@@ -11,7 +11,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    private static final String BASE_URL = "http://10.0.2.2:10000/";
+//    private static final String BASE_URL = "http://10.0.2.2:10000/";
+    private static final String BASE_URL = "https://newsnap.onrender.com/";
     //BASE_URL="https://newsnap.onrender.com/"
     //"http://10.0.2.2:10000/";
     private static Retrofit retrofit;
@@ -27,9 +28,9 @@ public class RetrofitClient {
                     new AuthInterceptor(TokenManager.getInstance(ctx));
 
             OkHttpClient client = new OkHttpClient.Builder()
-                    .connectTimeout(60, TimeUnit.SECONDS)   // 연결 시도 최대 대기시간 15초
-                    .readTimeout(60, TimeUnit.SECONDS)      // 서버 응답 읽기 최대 대기시간 30초
-                    .writeTimeout(60, TimeUnit.SECONDS)     // 요청 바디 전송 최대 대기시간 15초
+                    .connectTimeout(120, TimeUnit.SECONDS)   // 연결 시도 최대 대기시간 15초
+                    .readTimeout(120, TimeUnit.SECONDS)      // 서버 응답 읽기 최대 대기시간 30초
+                    .writeTimeout(120, TimeUnit.SECONDS)     // 요청 바디 전송 최대 대기시간 15초
                     .addInterceptor(authInterceptor)
                     .addInterceptor(logging)
                     .build();

@@ -94,7 +94,7 @@ public interface RetrofitRepository{
     Call<TrendSearchResult> getTrendSearch(
             @Query("start") String startDate,   // 예: "2025-05-01"
             @Query("end")   String endDate,     // 예: "2025-05-05"
-            @Query("topK")  int    topK
+            @Query("topK")  int topK
     );
 
     /** 4) 팝업용 뉴스(유저별) **/

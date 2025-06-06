@@ -14,7 +14,7 @@ import retrofit2.Response;
 public class NewsRepository {
 
     private final MutableLiveData<List<News>> headlines = new MutableLiveData<>();
-    private final MutableLiveData<String> error     = new MutableLiveData<>();
+    private final MutableLiveData<String> error = new MutableLiveData<>();
     private final RetrofitRepository api;
 
     // ★ Context를 받아서 RetrofitService를 생성

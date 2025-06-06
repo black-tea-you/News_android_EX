@@ -40,5 +40,14 @@
         android:maxLines="3"
         android:ellipsize="end" />
 
+    <!-- 버튼추가 -->
+    <Button
+        android:id="@+id/btnScrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="스크랩"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="end" />
+
 
 </LinearLayout>
